@@ -7,36 +7,35 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-axum = { version = "0.7", optional = true }
-console_error_panic_hook = "0.1"
-leptos = { version = "0.6", features = ["nightly"] }
-leptos_axum = { version = "0.6", optional = true }
-leptos_meta = { version = "0.6", features = ["nightly"] }
-leptos_router = { version = "0.6", features = ["nightly"] }
-tokio = { version = "1", features = ["rt-multi-thread"], optional = true }
-tower = { version = "0.4", features = ["util"], optional = true }
-tower-http = { version = "0.5", features = ["fs"], optional = true }
+axum = { version = "0.8.1", optional = true }
+console_error_panic_hook = "0.1.7"
+leptos = { version = "0.7.4", features = ["nightly"] }
+leptos_axum = { version = "0.7.4", optional = true }
+leptos_meta = { version = "0.7.4" }
+leptos_router = { version = "0.7.4", features = ["nightly"] }
+leptos_router_macro = { version = "0.7.4" }
+tokio = { version = "1.43.0", features = ["rt-multi-thread"], optional = true }
+tower = { version = "0.5.2", optional = true }
+tower-http = { version = "0.6.2", features = ["fs"], optional = true }
 wasm-bindgen.workspace = true
-thiserror = "1"
-tracing = { version = "0.1", optional = true }
-http = "1"
+thiserror = "2.0.11"
+tracing = { version = "0.1.41", optional = true }
+http = "1.2.0"
 leptos_hotkeys = { path = "../../leptos_hotkeys", features = [
-    "debug",
-    "use_key",
+  "debug",
+  "use_key",
 ] }
 
 [features]
-hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]
+hydrate = ["leptos/hydrate"]
 ssr = [
-    "dep:axum",
-    "dep:tokio",
-    "dep:tower",
-    "dep:tower-http",
-    "dep:leptos_axum",
-    "leptos/ssr",
-    "leptos_meta/ssr",
-    "leptos_router/ssr",
-    "dep:tracing",
+  "dep:axum",
+  "dep:tokio",
+  "dep:tower",
+  "dep:tower-http",
+  "dep:leptos_axum",
+  "leptos/ssr",
+  "dep:tracing",
 ]
 
 [package.metadata.leptos]
